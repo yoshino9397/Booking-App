@@ -84,7 +84,10 @@ const Header = () => {
             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
             <span
               className="headerSearchText"
-              onClick={() => setOpenDate(!openDate)}
+              onClick={() => {
+                setOpenOptions(openOptions);
+                setOpenDate(!openDate);
+              }}
             >
               {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
                 date[0].endDate,
@@ -105,7 +108,10 @@ const Header = () => {
             <FontAwesomeIcon icon={faPerson} className="headerIcon" />
             <span
               className="headerSearchText"
-              onClick={() => setOpenOptions(!openOptions)}
+              onClick={() => {
+                setOpenOptions(!openOptions);
+                setOpenDate(openDate);
+              }}
             >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
             {openOptions && (
               <div className="options">

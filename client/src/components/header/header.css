@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  font-size: 19px;
 }
 .headerListItem.active {
   border: 1px solid #DECDC3;
@@ -30,11 +31,13 @@
 }
 .headerDesc {
   margin: 20px 0px;
+  font-size: 18px;
 }
 
 .headerBtn {
   background-color: #EA5455;
   color: white;
+  font-size: 18px;
   font-weight: 500;
   border: none;
   padding: 10px;
@@ -65,6 +68,7 @@
 .headerSearchInput {
   border: none;
   outline: none;
+  font-size: 16px;
 }
 .headerSearchText {
   color: lightgray;
@@ -79,6 +83,7 @@
   z-index: 2;
   position: absolute;
   top: 50px;
+  margin-left:30px;
   background-color: white;
   color: gray;
   border-radius: 5px;

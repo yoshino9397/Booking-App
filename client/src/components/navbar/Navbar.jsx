@@ -10,7 +10,7 @@ const Navbar = () => {
             alt=""
             className="logo"
           />
-          <h1>Tabi.com</h1>
+          <h1 className="title">Tabi.com</h1>
         </div>
         <div className="navItems">
           <button className="navButton">Register</button>

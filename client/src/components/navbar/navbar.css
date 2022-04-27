@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+
 .navbar{
   height: 70px;
   display: flex;
@@ -27,10 +29,16 @@
   margin-right: 10px; 
   border: 2px solid #EA5455;
 }
+.title{
+  font-family: 'Tapestry';
+  font-size: 43px;
+}
+
 .navButton{
   margin-left: 20px;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   color: #2D4059;
+  font-size: 18px;
 }
