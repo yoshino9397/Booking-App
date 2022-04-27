@@ -11,7 +11,7 @@ const Explore = () => {
         />
         <div className="eListTitles">
           <h1>Sapporo</h1>
-          <h2>233 hotels</h2>
+          <h2>1200 hotels</h2>
         </div>
       </div>
       <div className="eListItem">
@@ -22,7 +22,7 @@ const Explore = () => {
         />
         <div className="eListTitles">
           <h1>Tokyo</h1>
-          <h2>233 hotels</h2>
+          <h2>4000 hotels</h2>
         </div>
       </div>
       <div className="eListItem">
@@ -33,7 +33,7 @@ const Explore = () => {
         />
         <div className="eListTitles">
           <h1>Kyoto</h1>
-          <h2>233 hotels</h2>
+          <h2>3000 hotels</h2>
         </div>
       </div>
       <div className="eListItem">
@@ -44,7 +44,7 @@ const Explore = () => {
         />
         <div className="eListTitles">
           <h1>Nagano</h1>
-          <h2>233 hotels</h2>
+          <h2>1980 hotels</h2>
         </div>
       </div>
       <div className="eListItem">
@@ -55,7 +55,7 @@ const Explore = () => {
         />
         <div className="eListTitles">
           <h1>Kumamoto</h1>
-          <h2>233 hotels</h2>
+          <h2>1000 hotels</h2>
         </div>
       </div>
     </div>
