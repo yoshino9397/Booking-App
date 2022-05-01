@@ -18,22 +18,22 @@ const Hotel = () => {
 
   const photos = [
     {
-      src: "https://live.staticflickr.com/65535/52033332526_41ecf5400d_k.jpg",
+      src: "https://live.staticflickr.com/1811/43848004601_f52380ae20_k.jpg",
     },
     {
-      src: "https://live.staticflickr.com/65535/52033332296_a41854a9d6_k.jpg",
+      src: "https://live.staticflickr.com/7397/27174980841_29a0c1bc7c_5k.jpg",
     },
     {
-      src: "https://live.staticflickr.com/65535/52032287302_6429af739f_k.jpg",
+      src: "https://live.staticflickr.com/526/19055234986_b9a28d50b4_b.jpg",
     },
     {
-      src: "https://live.staticflickr.com/65535/52033332566_5aac6adc11_k.jpg",
+      src: "https://live.staticflickr.com/4239/34995071582_3e7c55ca43_k.jpg",
     },
     {
       src: "https://live.staticflickr.com/65535/52032287812_a47f64726b_k.jpg",
     },
     {
-      src: "https://live.staticflickr.com/65535/52032287902_c315b17279_k.jpg",
+      src: "https://live.staticflickr.com/4602/38778666090_ac590cdc6b_6k.jpg",
     },
   ];
 
@@ -83,14 +83,12 @@ const Hotel = () => {
         )}
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
-          <h1 className="hotelTitle">Tower Street Apartments</h1>
+          <h1 className="hotelTitle">Lonely Forest Cabin</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
-            <span>Elton St 125 New york</span>
+            <span>Stockholm 125 Sweden</span>
           </div>
-          <span className="hotelDistance">
-            Excellent location – 500m from center
-          </span>
+          <span className="hotelDistance">50km from center</span>
           <span className="hotelPriceHighlight">
             Book a stay over $114 at this property and get a free airport taxi
           </span>
@@ -108,26 +106,26 @@ const Hotel = () => {
           </div>
           <div className="hotelDetails">
             <div className="hotelDetailsTexts">
-              <h1 className="hotelTitle">Stay in the heart of City</h1>
+              <h1 className="hotelTitle">Stay in the quiet of forest</h1>
               <p className="hotelDesc">
-                Located a 5-minute walk from St. Florian's Gate in Krakow, Tower
-                Street Apartments has accommodations with air conditioning and
-                free WiFi. The units come with hardwood floors and feature a
-                fully equipped kitchenette with a microwave, a flat-screen TV,
-                and a private bathroom with shower and a hairdryer. A fridge is
-                also offered, as well as an electric tea pot and a coffee
-                machine. Popular points of interest near the apartment include
-                Cloth Hall, Main Market Square and Town Hall Tower. The nearest
-                airport is John Paul II International Kraków–Balice, 16.1 km
-                from Tower Street Apartments, and the property offers a paid
-                airport shuttle service.
+                Situated in Vaxholm, 600 m from Bogesund Castle, Bogesund
+                Slottsvandrarhem features accommodation with a shared lounge,
+                free private parking, a garden and barbecue facilities. Boasting
+                family rooms, this property also provides guests with a sun
+                terrace. The accommodation offers a shared kitchen and free WiFi
+                throughout the property. With a shared bathroom, some rooms at
+                the hostel also boast a garden view. A buffet breakfast is
+                available each morning at Bogesund Slottsvandrarhem. The area is
+                popular for hiking and cycling, and bike hire is available at
+                the accommodation. The nearest airport is Bromma Stockholm
+                Airport, 29 km from Bogesund Slottsvandrarhem.
               </p>
             </div>
             <div className="hotelDetailsPrice">
               <h1>Perfect for a 9-night stay!</h1>
               <span>
-                Located in the real heart of Krakow, this property has an
-                excellent location score of 9.8!
+                Located in the quiet forest, this property has an excellent
+                cabin score of 9.8!
               </span>
               <h2>
                 <b>$945</b> (9 nights)
