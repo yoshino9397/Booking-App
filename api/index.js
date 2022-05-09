@@ -22,6 +22,11 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
+app.use((req, res, next) => {
+  res.send("hello middlewares");
+  next();
+});
+
 //middlewares
 app.use(express.json());
 
