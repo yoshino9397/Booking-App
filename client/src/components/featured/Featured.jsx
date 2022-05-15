@@ -9,7 +9,7 @@ const Featured = () => {
   return (
     <div className="featured">
       {loading ? (
-        "Loading ....."
+        "Loading...."
       ) : (
         <>
           <div className="featuredItem">

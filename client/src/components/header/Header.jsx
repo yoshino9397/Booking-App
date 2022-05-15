@@ -20,7 +20,7 @@ const Header = ({ type }) => {
   const navigate = useNavigate();
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -44,7 +44,7 @@ const Header = ({ type }) => {
   };
 
   const handleSearch = () => {
-    navigate("/hotels", { state: { destination, date, options } });
+    navigate("/hotels", { state: { destination, dates, options } });
   };
 
   return (
@@ -104,17 +104,17 @@ const Header = ({ type }) => {
                     setOpenDate(!openDate);
                   }}
                 >
-                  {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                    date[0].endDate,
+                  {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                    dates[0].endDate,
                     "MM/dd/yyyy"
                   )}`}
                 </span>
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     className="date"
                     minDate={new Date()}
                   />
