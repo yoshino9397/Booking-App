@@ -42,3 +42,8 @@
   color: #2D4059;
   font-size: 18px;
 }
+.icon{
+  position: absolute;
+  color:#EA5455;
+  z-index: 100;
+}
