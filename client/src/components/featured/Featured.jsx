@@ -5,7 +5,6 @@ const Featured = () => {
   const { data, loading } = useFetch(
     "/hotels/countByCity?cities=Kanazawa,Hanoi,Hallstatt"
   );
-  console.log(data);
   return (
     <div className="featured">
       {loading ? (
