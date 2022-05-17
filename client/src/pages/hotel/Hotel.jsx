@@ -1,4 +1,11 @@
 import "./hotel.css";
+import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faCircleXmark,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
@@ -7,13 +14,8 @@ import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import MailList from "../../components/mailList/MailList";
 import Footer from "../../components/footer/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
-  faCircleXmark,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
+import { AuthContext } from "../../context/AuthContext";
+import Reserve from "../../components/reserve/Reserve";
 
 const Hotel = () => {
   const location = useLocation();
@@ -23,6 +25,7 @@ const Hotel = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading } = useFetch(`/hotels/find/${id}`);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const { dates, options } = useContext(SearchContext);
 
@@ -49,6 +52,14 @@ const Hotel = () => {
     }
 
     setSlideNumber(newSlideNumber);
+  };
+
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
@@ -124,7 +135,7 @@ const Hotel = () => {
                   <b>${days * data.cheapestPrice * options.room}</b> ({days}
                   nights)
                 </h2>
-                <button>Reserve or Book Now!</button>
+                <button onClick={handleClick}>Reserve or Book Now!</button>
               </div>
             </div>
           </div>
@@ -134,6 +145,7 @@ const Hotel = () => {
           </div>
         </div>
       )}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id} />}
     </div>
   );
 };
