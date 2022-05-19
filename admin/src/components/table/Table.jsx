@@ -1,4 +1,4 @@
-import "./table.css";
+import "./table.scss";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,9 +11,9 @@ const List = () => {
   const rows = [
     {
       id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
+      product: "Little Nightmare",
+      img: "https://upload.wikimedia.org/wikipedia/en/d/d8/Little_Nightmares_Box_Art.png",
+      customer: "Azuma",
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
@@ -21,9 +21,9 @@ const List = () => {
     },
     {
       id: 2235235,
-      product: "Playstation 5",
-      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Michael Doe",
+      product: "Architectural Styles Guide",
+      img: "https://m.media-amazon.com/images/P/B08CS3C766.01._SCLZZZZZZZ_SX500_.jpg",
+      customer: "Mitsugi",
       date: "1 March",
       amount: 900,
       method: "Online Payment",
@@ -31,9 +31,9 @@ const List = () => {
     },
     {
       id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
+      product: "Fishing lure",
+      img: "https://images.unsplash.com/photo-1570353825353-5daea21cdc4d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774",
+      customer: "Matsuda",
       date: "1 March",
       amount: 35,
       method: "Cash on Delivery",
@@ -41,9 +41,9 @@ const List = () => {
     },
     {
       id: 2357741,
-      product: "Razer Blade 15",
-      img: "https://m.media-amazon.com/images/I/71wF7YDIQkL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Jane Smith",
+      product: "FUJIFILM Camera",
+      img: "https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774",
+      customer: "Takara",
       date: "1 March",
       amount: 920,
       method: "Online",
@@ -51,9 +51,9 @@ const List = () => {
     },
     {
       id: 2342355,
-      product: "ASUS ROG Strix",
-      img: "https://m.media-amazon.com/images/I/81hH5vK-MCL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Harold Carol",
+      product: "Toaster",
+      img: "https://images.unsplash.com/photo-1583729250536-d5fb10401671?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770",
+      customer: "Nanjo",
       date: "1 March",
       amount: 2000,
       method: "Online",
