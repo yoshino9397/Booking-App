@@ -3,19 +3,19 @@ export const userInputs = [
       id: 1,
       label: "Username",
       type: "text",
-      placeholder: "john_doe",
+      placeholder: "yoshino",
     },
     {
       id: 2,
       label: "Name and surname",
       type: "text",
-      placeholder: "John Doe",
+      placeholder: "yoshino yayama",
     },
     {
       id: 3,
       label: "Email",
       type: "mail",
-      placeholder: "john_doe@gmail.com",
+      placeholder: "yoshino@gmail.com",
     },
     {
       id: 4,
@@ -32,13 +32,13 @@ export const userInputs = [
       id: 6,
       label: "Address",
       type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      placeholder: "Vancouver,BC",
     },
     {
       id: 7,
       label: "Country",
       type: "text",
-      placeholder: "USA",
+      placeholder: "Canada",
     },
   ];
   
