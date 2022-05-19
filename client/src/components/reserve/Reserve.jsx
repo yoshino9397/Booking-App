@@ -1,4 +1,6 @@
 import "./reserve.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState } from "react";
@@ -7,8 +9,9 @@ import { SearchContext } from "../../context/SearchContext";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
+  const { data } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
+  const navigate = useNavigate();
 
   const getDatesInRange = (startDate, endDate) => {
     const start = new Date(startDate);
@@ -41,8 +44,18 @@ const Reserve = ({ setOpen, hotelId }) => {
     );
   };
 
-  const handleClick = () => {
+  const handleClick = async () => {
     try {
+      await Promise.all(
+        selectedRooms.map((roomId) => {
+          const res = axios.put(`/rooms/availability/${roomId}`, {
+            dates: alldates,
+          });
+          return res.data;
+        })
+      );
+      setOpen(false);
+      navigate("/");
     } catch (err) {}
   };
 
@@ -63,7 +76,7 @@ const Reserve = ({ setOpen, hotelId }) => {
               <div className="rMax">
                 Max people: <b>{item.maxPeople}</b>
               </div>
-              <div className="rPrice">{item.price}</div>
+              <div className="rPrice">$ {item.price}</div>
             </div>
             <div className="rSelectRooms">
               {item.roomNumbers.map((roomNumber) => (
@@ -73,7 +86,7 @@ const Reserve = ({ setOpen, hotelId }) => {
                     type="checkbox"
                     value={roomNumber._id}
                     onChange={handleSelect}
-                    // disabled={!isAvailable(roomNumber)}
+                    disabled={!isAvailable(roomNumber)}
                   />
                 </div>
               ))}
