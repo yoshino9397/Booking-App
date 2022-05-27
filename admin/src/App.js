@@ -1,38 +1,108 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { productInputs, userInputs } from "./formSource";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/AuthContext";
+import List from "./components/table/Table";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
+
+  const UserRoute = ({ children }) => {
+    const { user } = useContext(AuthContext);
+    if (!user) {
+      return <Navigate to="/login" />;
+    }
+    return children;
+  };
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
           <Route path="/">
-            <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
+            <Route
+              index
+              element={
+                <UserRoute>
+                  <Home />
+                </UserRoute>
+              }
+            />
             <Route path="users">
-              <Route index element={<List />} />
-              <Route path=":userId" element={<Single />} />
+              <Route
+                index
+                element={
+                  <UserRoute>
+                    {/* <List columns={userColumns} /> */}
+                    <List />
+                  </UserRoute>
+                }
+              />
+              <Route
+                path=":userId"
+                element={
+                  <UserRoute>
+                    <Single />
+                  </UserRoute>
+                }
+              />
               <Route
                 path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
+                element={
+                  <UserRoute>
+                    <New inputs={userInputs} title="Add New User" />
+                  </UserRoute>
+                }
               />
             </Route>
-            <Route path="products">
-              <Route index element={<List />} />
-              <Route path=":productId" element={<Single />} />
+            <Route path="hotels">
+              <Route
+                index
+                element={
+                  <UserRoute>
+                    {/* <List columns={hotelColumns} /> */}
+                    <List />
+                  </UserRoute>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <UserRoute>
+                    <Single />
+                  </UserRoute>
+                }
+              />
               <Route
                 path="new"
-                element={<New inputs={productInputs} title="Add New Product" />}
+                element={<UserRoute>{/* <NewHotel /> */}</UserRoute>}
+              />
+            </Route>
+            <Route path="rooms">
+              <Route
+                index
+                element={
+                  <UserRoute>{/* <List columns={roomColumns} /> */}</UserRoute>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <UserRoute>
+                    <Single />
+                  </UserRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={<UserRoute>{/* <NewRoom /> */}</UserRoute>}
               />
             </Route>
           </Route>
