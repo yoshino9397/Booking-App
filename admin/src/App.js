@@ -1,6 +1,7 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Single from "./pages/single/Single";
+import SingleUser from "./pages/singleuser/SingleUser";
+import SingleProduct from "./pages/singleproduct/SingleProduct";
 import New from "./pages/new/New";
 import List from "./pages/list/List";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -9,7 +10,7 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { userColumns } from "./datatablesource";
+import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -49,7 +50,7 @@ function App() {
                 path=":userId"
                 element={
                   <UserRoute>
-                    <Single />
+                    <SingleUser />
                   </UserRoute>
                 }
               />
@@ -67,8 +68,7 @@ function App() {
                 index
                 element={
                   <UserRoute>
-                    {/* <List columns={hotelColumns} /> */}
-                    <List />
+                    <List columns={hotelColumns} />
                   </UserRoute>
                 }
               />
@@ -76,7 +76,7 @@ function App() {
                 path=":productId"
                 element={
                   <UserRoute>
-                    <Single />
+                    <SingleProduct />
                   </UserRoute>
                 }
               />
@@ -89,14 +89,16 @@ function App() {
               <Route
                 index
                 element={
-                  <UserRoute>{/* <List columns={roomColumns} /> */}</UserRoute>
+                  <UserRoute>
+                    <List columns={roomColumns} />
+                  </UserRoute>
                 }
               />
               <Route
                 path=":productId"
                 element={
                   <UserRoute>
-                    <Single />
+                    <SingleProduct />
                   </UserRoute>
                 }
               />

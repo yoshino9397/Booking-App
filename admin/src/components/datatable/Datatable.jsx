@@ -15,7 +15,7 @@ const Datatable = () => {
   useEffect(() => {
     setList(data);
   }, [data]);
-
+  console.log(data);
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/${path}/${id}`);
@@ -31,7 +31,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to={`/users/${params.id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
