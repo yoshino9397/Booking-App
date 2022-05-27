@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { createError } from "../utils/error.js";
 
 export const register = async (req, res, next) => {
   try {
@@ -8,8 +9,7 @@ export const register = async (req, res, next) => {
     const hash = bcrypt.hashSync(req.body.password, salt);
 
     const newUser = new User({
-      username: req.body.username,
-      email: req.body.email,
+      ...req.body,
       password: hash,
     });
     await newUser.save();
