@@ -1,13 +1,13 @@
 import { createContext, useEffect, useReducer } from "react";
 
 const INITIAL_STATE = {
-  user: {
-    _id: "627c7af100967d49b9d9ab26",
-    username: "yoshino",
-    email: "yoshino@mail",
-    isAdmin: false,
-  },
-  // user: JSON.parse(localStorage.getItem("user")) || null,
+  // user: {
+  //   _id: "627c7af100967d49b9d9ab26",
+  //   username: "yoshino",
+  //   email: "yoshino@mail",
+  //   isAdmin: true,
+  // },
+  user: JSON.parse(localStorage.getItem("user")) || null,
   loading: false,
   error: null,
 };

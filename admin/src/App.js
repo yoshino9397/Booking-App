@@ -2,13 +2,14 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
+import List from "./pages/list/List";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import List from "./components/table/Table";
+import { userColumns } from "./datatablesource";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -40,8 +41,7 @@ function App() {
                 index
                 element={
                   <UserRoute>
-                    {/* <List columns={userColumns} /> */}
-                    <List />
+                    <List columns={userColumns} />
                   </UserRoute>
                 }
               />
