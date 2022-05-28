@@ -3,13 +3,13 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "john_doe",
+    placeholder: "yoshino",
   },
   {
     id: "email",
     label: "Email",
     type: "email",
-    placeholder: "john_doe@gmail.com",
+    placeholder: "yoshino@gmail.com",
   },
   {
     id: "phone",
@@ -26,13 +26,13 @@ export const userInputs = [
     id: "country",
     label: "Country",
     type: "text",
-    placeholder: "USA",
+    placeholder: "JAPAN",
   },
   {
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "USA",
+    placeholder: "Fukuoka",
   },
 ];
 
@@ -74,7 +74,7 @@ export const hotelInputs = [
     id: "name",
     label: "Name",
     type: "text",
-    placeholder: "My Hotel",
+    placeholder: "LYNX Hotel",
   },
   {
     id: "type",

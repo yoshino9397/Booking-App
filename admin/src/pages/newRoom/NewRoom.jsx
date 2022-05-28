@@ -26,15 +26,13 @@ const NewRoom = () => {
       console.log(err);
     }
   };
-
-  console.log(info);
   return (
     <div className="new">
       <Sidebar />
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Room</h1>
+          <h1>Add New Rooms</h1>
         </div>
         <div className="bottom">
           <div className="right">
@@ -73,8 +71,10 @@ const NewRoom = () => {
                       ))}
                 </select>
               </div>
-              <button onClick={handleClick}>Send</button>
             </form>
+            <div className="send">
+              <button onClick={handleClick}>Send</button>
+            </div>
           </div>
         </div>
       </div>

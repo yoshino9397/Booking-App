@@ -26,8 +26,6 @@ const NewHotel = () => {
     setRooms(value);
   };
 
-  console.log(files);
-
   const handleClick = async (e) => {
     e.preventDefault();
     try {
@@ -63,7 +61,7 @@ const NewHotel = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Product</h1>
+          <h1>Add New Hotels</h1>
         </div>
         <div className="bottom">
           <div className="left">
@@ -75,22 +73,21 @@ const NewHotel = () => {
               }
               alt=""
             />
+            <div className="formInput">
+              <label htmlFor="file">
+                Image: <DriveFolderUploadOutlinedIcon className="icon" />
+              </label>
+              <input
+                type="file"
+                id="file"
+                multiple
+                onChange={(e) => setFiles(e.target.files)}
+                style={{ display: "none" }}
+              />
+            </div>
           </div>
           <div className="right">
             <form>
-              <div className="formInput">
-                <label htmlFor="file">
-                  Image: <DriveFolderUploadOutlinedIcon className="icon" />
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  multiple
-                  onChange={(e) => setFiles(e.target.files)}
-                  style={{ display: "none" }}
-                />
-              </div>
-
               {hotelInputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
