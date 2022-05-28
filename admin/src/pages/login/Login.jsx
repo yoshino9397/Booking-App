@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.scss";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -57,6 +58,9 @@ const Login = () => {
         <button disabled={loading} onClick={handleClick} className="lButton">
           Login
         </button>
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <button className="register">Register</button>
+        </Link>
         {error && <span>{error.message}</span>}
       </div>
     </div>
