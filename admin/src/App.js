@@ -2,7 +2,7 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import SingleUser from "./pages/singleuser/SingleUser";
-import SingleProduct from "./pages/singleproduct/SingleProduct";
+import SingleHotel from "./pages/singleHotel/SingleHotel";
 import New from "./pages/new/New";
 import List from "./pages/list/List";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -12,7 +12,9 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
-
+import NewRoom from "./pages/newRoom/NewRoom";
+import NewHotel from "./pages/newHotel/NewHotel";
+import SingleRoom from "./pages/singleRoom/SingleRoom";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -76,16 +78,20 @@ function App() {
                 }
               />
               <Route
-                path=":productId"
+                path=":HotelId"
                 element={
                   <UserRoute>
-                    <SingleProduct />
+                    <SingleHotel />
                   </UserRoute>
                 }
               />
               <Route
                 path="new"
-                element={<UserRoute>{/* <NewHotel /> */}</UserRoute>}
+                element={
+                  <UserRoute>
+                    <NewHotel />
+                  </UserRoute>
+                }
               />
             </Route>
             <Route path="rooms">
@@ -98,16 +104,20 @@ function App() {
                 }
               />
               <Route
-                path=":productId"
+                path=":HotelId"
                 element={
                   <UserRoute>
-                    <SingleProduct />
+                    <SingleRoom />
                   </UserRoute>
                 }
               />
               <Route
                 path="new"
-                element={<UserRoute>{/* <NewRoom /> */}</UserRoute>}
+                element={
+                  <UserRoute>
+                    <NewRoom />
+                  </UserRoute>
+                }
               />
             </Route>
           </Route>
