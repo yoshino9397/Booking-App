@@ -1,4 +1,4 @@
-import "./singleproduct.scss";
+import "./singleroom.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const SingleProduct = () => {
+const SingleRoom = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [info, setInfo] = useState([]);
@@ -15,7 +15,7 @@ const SingleProduct = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("/users/" + id);
+        const res = await axios.get("/rooms/" + id);
         setInfo(res.data);
       } catch {}
     };
@@ -74,4 +74,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default SingleRoom;
