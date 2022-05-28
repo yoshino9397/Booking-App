@@ -1,5 +1,6 @@
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import SingleUser from "./pages/singleuser/SingleUser";
 import SingleProduct from "./pages/singleproduct/SingleProduct";
 import New from "./pages/new/New";
@@ -11,6 +12,7 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
 import { hotelColumns, roomColumns, userColumns } from "./datatablesource";
+
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -29,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
             <Route
               index
               element={
