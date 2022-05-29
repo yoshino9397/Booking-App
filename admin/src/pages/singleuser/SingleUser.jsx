@@ -3,14 +3,21 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Tables from "../../components/table/Table";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 const SingleUser = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [info, setInfo] = useState([]);
+  const [showEdit, setShowEdit] = useState(false);
+  const username = useRef();
+  const email = useRef();
+  const phone = useRef();
+  const city = useRef();
+  const country = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -21,7 +28,27 @@ const SingleUser = () => {
     };
     getProduct();
   }, [id]);
-  console.log(info);
+
+  const handleChange = (e) => {
+    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    const editUser = {
+      username: username.current.value,
+      email: email.current.value,
+      phone: phone.current.value,
+      city: city.current.value,
+      country: country.current.value,
+    };
+    try {
+      await axios.put(`/users/${id}`, editUser);
+      navigate(`/users`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="single">
@@ -30,7 +57,14 @@ const SingleUser = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
+            <div
+              className="editButton"
+              onClick={() => {
+                setShowEdit(true);
+              }}
+            >
+              Edit
+            </div>
             <h1 className="title">Information</h1>
             <div className="item">
               <img src={info.img} alt="" className="itemImg" />
@@ -64,6 +98,73 @@ const SingleUser = () => {
           <Tables />
         </div>
       </div>
+      {showEdit && (
+        <div className="editPage">
+          <div className="editContainer">
+            <button
+              className="cancel"
+              onClick={() => {
+                setShowEdit(false);
+              }}
+            >
+              X
+            </button>
+            <div className="editItem">
+              <span>Username</span>
+              <input
+                type="text"
+                required
+                ref={username}
+                onChange={handleChange}
+                placeholder={info.username}
+              />
+            </div>
+            <div className="editItem">
+              <span>Email</span>
+              <input
+                type="email"
+                required
+                ref={email}
+                onChange={handleChange}
+                placeholder={info.email}
+              />
+            </div>
+            <div className="editItem">
+              <span>Phone</span>
+              <input
+                type="number"
+                required
+                ref={phone}
+                onChange={handleChange}
+                placeholder={info.phone}
+              />
+            </div>
+            <div className="editItem">
+              <span>City</span>
+              <input
+                type="text"
+                required
+                ref={city}
+                onChange={handleChange}
+                placeholder={info.city}
+              />
+            </div>
+            <div className="editItem">
+              <span>Country</span>
+              <input
+                type="text"
+                required
+                ref={country}
+                onChange={handleChange}
+                placeholder={info.country}
+              />
+            </div>
+            <button onClick={handleEdit} className="saveButton">
+              Save
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
