@@ -6,7 +6,7 @@ import SingleHotel from "./pages/singleHotel/SingleHotel";
 import New from "./pages/new/New";
 import List from "./pages/list/List";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { userInputs } from "./formSource";
+import { hotelInputs, roomInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
@@ -89,7 +89,7 @@ function App() {
                 path="new"
                 element={
                   <UserRoute>
-                    <NewHotel />
+                    <NewHotel inputs={hotelInputs} title="Add New Hotel" />
                   </UserRoute>
                 }
               />
@@ -115,7 +115,7 @@ function App() {
                 path="new"
                 element={
                   <UserRoute>
-                    <NewRoom />
+                    <NewRoom inputs={roomInputs} title="Add New Room" />
                   </UserRoute>
                 }
               />

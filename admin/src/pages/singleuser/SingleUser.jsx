@@ -1,8 +1,8 @@
 import "./singleuser.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
+import Tables from "../../components/table/Table";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -33,11 +33,7 @@ const SingleUser = () => {
             <div className="editButton">Edit</div>
             <h1 className="title">Information</h1>
             <div className="item">
-              <img
-                src={info.img}
-                alt=""
-                className="itemImg"
-              />
+              <img src={info.img} alt="" className="itemImg" />
               <div className="details">
                 <h1 className="itemTitle">{info.username}</h1>
                 <div className="detailItem">
@@ -50,9 +46,7 @@ const SingleUser = () => {
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">City:</span>
-                  <span className="itemValue">
-                  {info.city}
-                  </span>
+                  <span className="itemValue">{info.city}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">Country:</span>
@@ -67,7 +61,7 @@ const SingleUser = () => {
         </div>
         <div className="bottom">
           <h1 className="title">Last Transactions</h1>
-          <List />
+          <Tables />
         </div>
       </div>
     </div>

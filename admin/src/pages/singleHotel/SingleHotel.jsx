@@ -1,4 +1,4 @@
-import "./singlehotel.scss";
+import "../singleuser/singleuser.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
@@ -15,13 +15,13 @@ const SingleHotel = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("/hotels/" + id);
+        const res = await axios.get("/hotels/find/" + id);
         setInfo(res.data);
       } catch {}
     };
     getProduct();
   }, [id]);
-  console.log(info);
+  console.log(info.img);
 
   return (
     <div className="single">
@@ -33,30 +33,28 @@ const SingleHotel = () => {
             <div className="editButton">Edit</div>
             <h1 className="title">Information</h1>
             <div className="item">
-              <img
-                src={info.img}
-                alt=""
-                className="itemImg"
-              />
+              <img src={info.photos} alt="" className="itemImg" />
               <div className="details">
-                <h1 className="itemTitle">{info.username}</h1>
+                <h1 className="itemTitle">{info.name}</h1>
                 <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue">{info.email}</span>
-                </div>
-                <div className="detailItem">
-                  <span className="itemKey">Phone:</span>
-                  <span className="itemValue">{info.phone}</span>
+                  <span className="itemKey">Type:</span>
+                  <span className="itemValue">{info.type}</span>
                 </div>
                 <div className="detailItem">
                   <span className="itemKey">City:</span>
-                  <span className="itemValue">
-                  {info.city}
-                  </span>
+                  <span className="itemValue">{info.city}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Country:</span>
-                  <span className="itemValue">{info.country}</span>
+                  <span className="itemKey">Title:</span>
+                  <span className="itemValue">{info.title}</span>
+                </div>
+                <div className="detailItem">
+                  <span className="itemKey">Price:</span>
+                  <span className="itemValue">{info.cheapestPrice} 〜</span>
+                </div>
+                <div className="detailItem">
+                  <span className="itemKey">Desc:</span>
+                  <span className="itemValue">{info.desc}</span>
                 </div>
               </div>
             </div>
