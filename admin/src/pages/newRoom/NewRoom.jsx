@@ -6,7 +6,7 @@ import { roomInputs } from "../../formSource";
 import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 
-const NewRoom = () => {
+const NewRoom = ({ inputs, title }) => {
   const [info, setInfo] = useState({});
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
@@ -32,12 +32,12 @@ const NewRoom = () => {
       <div className="newContainer">
         <Navbar />
         <div className="top">
-          <h1>Add New Rooms</h1>
+          <h1>{title}</h1>
         </div>
         <div className="bottom">
           <div className="right">
             <form>
-              {roomInputs.map((input) => (
+              {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
                   <input

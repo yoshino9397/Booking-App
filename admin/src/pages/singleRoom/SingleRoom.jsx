@@ -11,20 +11,21 @@ const SingleRoom = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [info, setInfo] = useState([]);
+  const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
     const getProduct = async () => {
       try {
         const res = await axios.get("/rooms/" + id);
         setInfo(res.data);
+        setRooms(res.data.roomNumbers.length);
       } catch {}
     };
     getProduct();
   }, [id]);
-  console.log(info);
 
   return (
-    <div className="single">
+    <div className="singleRoom">
       <Sidebar />
       <div className="singleContainer">
         <Navbar />
@@ -33,30 +34,23 @@ const SingleRoom = () => {
             <div className="editButton">Edit</div>
             <h1 className="title">Information</h1>
             <div className="item">
-              <img
-                src={info.img}
-                alt=""
-                className="itemImg"
-              />
               <div className="details">
-                <h1 className="itemTitle">{info.username}</h1>
+                <h1 className="itemTitle">{info.title}</h1>
                 <div className="detailItem">
-                  <span className="itemKey">Email:</span>
-                  <span className="itemValue">{info.email}</span>
+                  <span className="itemKey">Price:</span>
+                  <span className="itemValue">{info.price}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Phone:</span>
-                  <span className="itemValue">{info.phone}</span>
+                  <span className="itemKey">Capacity:</span>
+                  <span className="itemValue">〜 {info.maxPeople}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">City:</span>
-                  <span className="itemValue">
-                  {info.city}
-                  </span>
+                  <span className="itemKey">Desc:</span>
+                  <span className="itemValue">{info.desc}</span>
                 </div>
                 <div className="detailItem">
-                  <span className="itemKey">Country:</span>
-                  <span className="itemValue">{info.country}</span>
+                  <span className="itemKey">Rooms:</span>
+                  <span className="itemValue">{rooms}</span>
                 </div>
               </div>
             </div>
