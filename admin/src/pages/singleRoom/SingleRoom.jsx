@@ -3,8 +3,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 const SingleRoom = () => {
@@ -12,6 +12,12 @@ const SingleRoom = () => {
   const id = location.pathname.split("/")[2];
   const [info, setInfo] = useState([]);
   const [rooms, setRooms] = useState([]);
+  const [showEdit, setShowEdit] = useState(false);
+  const title = useRef();
+  const price = useRef();
+  const people = useRef();
+  const desc = useRef();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -24,6 +30,26 @@ const SingleRoom = () => {
     getProduct();
   }, [id]);
 
+  const handleChange = (e) => {
+    setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    const editRoom = {
+      title: title.current.value,
+      maxPeople: people.current.value,
+      price: price.current.value,
+      desc: desc.current.value,
+    };
+    try {
+      await axios.put(`/rooms/${id}`, editRoom);
+      navigate(`/rooms`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="singleRoom">
       <Sidebar />
@@ -31,7 +57,14 @@ const SingleRoom = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
+            <div
+              className="editButton"
+              onClick={() => {
+                setShowEdit(true);
+              }}
+            >
+              Edit
+            </div>
             <h1 className="title">Information</h1>
             <div className="item">
               <div className="details">
@@ -64,6 +97,63 @@ const SingleRoom = () => {
           <List />
         </div>
       </div>
+      {showEdit && (
+        <div className="editPageRoom">
+          <div className="editContainerRoom">
+            <button
+              className="cancelButton"
+              onClick={() => {
+                setShowEdit(false);
+              }}
+            >
+              X
+            </button>
+            <div className="editItem">
+              <span>Title</span>
+              <input
+                type="text"
+                required
+                ref={title}
+                onChange={handleChange}
+                placeholder={info.title}
+              />
+            </div>
+            <div className="editItem">
+              <span>Price</span>
+              <input
+                type="text"
+                required
+                ref={price}
+                onChange={handleChange}
+                placeholder={info.price}
+              />
+            </div>
+            <div className="editItem">
+              <span>MaxPeople</span>
+              <input
+                type="number"
+                required
+                ref={people}
+                onChange={handleChange}
+                placeholder={info.maxPeople}
+              />
+            </div>
+            <div className="editItem">
+              <span>Desc</span>
+              <input
+                type="text"
+                required
+                ref={desc}
+                onChange={handleChange}
+                placeholder={info.desc}
+              />
+            </div>
+            <button onClick={handleEdit} className="save">
+              Save
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
