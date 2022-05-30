@@ -43,8 +43,10 @@
   color: #2D4059;
   font-size: 18px;
 }
-.icon{
-  position: absolute;
-  color:#EA5455;
-  z-index: 100;
+
+.userItems{
+  display: flex;
+  flex-direction: row;
+  gap: 0 20px;
+  cursor: pointer;
 }
