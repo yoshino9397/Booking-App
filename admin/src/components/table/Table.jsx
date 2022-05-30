@@ -11,52 +11,52 @@ const Tables = () => {
   const rows = [
     {
       id: 1143155,
-      product: "Little Nightmare",
-      img: "https://upload.wikimedia.org/wikipedia/en/d/d8/Little_Nightmares_Box_Art.png",
-      customer: "Azuma",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
+      hotel: "The Paradise Hotel",
+      img: "https://live.staticflickr.com/4503/24223619048_99de8cc19c_3k.jpg",
+      applicant: "Azuma",
+      date: "13rd March",
+      country: "Japan",
+      property: "hotel",
       status: "Approved",
     },
     {
       id: 2235235,
-      product: "Architectural Styles Guide",
-      img: "https://m.media-amazon.com/images/P/B08CS3C766.01._SCLZZZZZZZ_SX500_.jpg",
-      customer: "Mitsugi",
-      date: "1 March",
-      amount: 900,
-      method: "Online Payment",
+      hotel: "Seaside View Villa",
+      img: "https://live.staticflickr.com/4680/38206662275_66357ba3b5_6k.jpg",
+      applicant: "Mitsugi",
+      date: "25 June",
+      country: "Thailand",
+      property: "villa",
       status: "Pending",
     },
     {
       id: 2342353,
-      product: "Fishing lure",
-      img: "https://images.unsplash.com/photo-1570353825353-5daea21cdc4d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774",
-      customer: "Matsuda",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
+      hotel: "Fishing House",
+      img: "https://live.staticflickr.com/8715/17721323862_337594552f_k.jpg",
+      applicant: "Matsuda",
+      date: "12 May",
+      country: "Taiwan",
+      property: "cabin",
       status: "Pending",
     },
     {
       id: 2357741,
-      product: "FUJIFILM Camera",
-      img: "https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774",
-      customer: "Takara",
-      date: "1 March",
-      amount: 920,
-      method: "Online",
+      hotel: "Resort Hourai",
+      img: "https://live.staticflickr.com/2260/1846889405_912dd3fbea_k.jpg",
+      applicant: "Takara",
+      date: "28 January",
+      country: "Mexico",
+      property: "resort",
       status: "Approved",
     },
     {
       id: 2342355,
-      product: "Toaster",
-      img: "https://images.unsplash.com/photo-1583729250536-d5fb10401671?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770",
-      customer: "Nanjo",
-      date: "1 March",
-      amount: 2000,
-      method: "Online",
+      hotel: "Cottage South Breeze",
+      img: "https://live.staticflickr.com/65535/51031241107_7affec482b_6k.jpg",
+      applicant: "Nanjo",
+      date: "18 October",
+      country: "New Zealand",
+      property: "cottage",
       status: "Pending",
     },
   ];
@@ -65,12 +65,12 @@ const Tables = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">Tracking ID</TableCell>
-            <TableCell className="tableCell">Product</TableCell>
-            <TableCell className="tableCell">Customer</TableCell>
+            <TableCell className="tableCell">Application ID</TableCell>
+            <TableCell className="tableCell">Hotels</TableCell>
+            <TableCell className="tableCell">Applicant</TableCell>
             <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Payment Method</TableCell>
+            <TableCell className="tableCell">Country</TableCell>
+            <TableCell className="tableCell">Property type</TableCell>
             <TableCell className="tableCell">Status</TableCell>
           </TableRow>
         </TableHead>
@@ -81,13 +81,13 @@ const Tables = () => {
               <TableCell className="tableCell">
                 <div className="cellWrapper">
                   <img src={row.img} alt="" className="image" />
-                  {row.product}
+                  {row.hotel}
                 </div>
               </TableCell>
-              <TableCell className="tableCell">{row.customer}</TableCell>
+              <TableCell className="tableCell">{row.applicant}</TableCell>
               <TableCell className="tableCell">{row.date}</TableCell>
-              <TableCell className="tableCell">{row.amount}</TableCell>
-              <TableCell className="tableCell">{row.method}</TableCell>
+              <TableCell className="tableCell">{row.country}</TableCell>
+              <TableCell className="tableCell">{row.property}</TableCell>
               <TableCell className="tableCell">
                 <span className={`status ${row.status}`}>{row.status}</span>
               </TableCell>
