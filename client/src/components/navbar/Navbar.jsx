@@ -27,7 +27,7 @@ const Navbar = () => {
               alt=""
               className="logo"
             />
-            <h1 className="title">Tabi.com</h1>
+            <h1 className="title">Tabi .com</h1>
           </div>
         </Link>
         {user ? (
