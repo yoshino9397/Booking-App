@@ -1,7 +1,6 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import LuggageIcon from "@mui/icons-material/Luggage";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
@@ -63,10 +62,6 @@ const Sidebar = () => {
               <span>Rooms</span>
             </li>
           </Link>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
           <p className="title">USEFUL</p>
           <li>
             <InsertChartIcon className="icon" />

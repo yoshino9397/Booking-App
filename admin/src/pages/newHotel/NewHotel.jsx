@@ -37,18 +37,15 @@ const NewHotel = ({ inputs, title }) => {
             "https://api.cloudinary.com/v1_1/lamadev/image/upload",
             data
           );
-
           const { url } = uploadRes.data;
           return url;
         })
       );
-
       const newhotel = {
         ...info,
         rooms,
         photos: list,
       };
-
       await axios.post("/hotels", newhotel);
     } catch (err) {
       console.log(err);
@@ -103,6 +100,17 @@ const NewHotel = ({ inputs, title }) => {
                 <select id="featured" onChange={handleChange}>
                   <option value={false}>No</option>
                   <option value={true}>Yes</option>
+                </select>
+              </div>
+              <div className="formInput">
+                <label>Type</label>
+                <select id="type" onChange={handleChange}>
+                  <option value="hotel">Hotel</option>
+                  <option value="apartment">Apartment</option>
+                  <option value="resort">Resort</option>
+                  <option value="villa">Villa</option>
+                  <option value="cabin">Cabin</option>
+                  <option value="cottage">Cottage</option>
                 </select>
               </div>
               <div className="selectRooms">
