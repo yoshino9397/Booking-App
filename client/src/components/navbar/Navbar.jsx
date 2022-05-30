@@ -1,10 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    try {
+      dispatch({ type: "LOGOUT", payload: null });
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="navbar">
       <div className="navContainer">
@@ -19,11 +31,22 @@ const Navbar = () => {
           </div>
         </Link>
         {user ? (
-          <h3>{user.username}</h3>
+          <div className="userItems">
+            <FontAwesomeIcon
+              icon={faRightFromBracket}
+              style={{ fontSize: "25px" }}
+              onClick={handleLogout}
+            />
+            <h3>{user.username}</h3>
+          </div>
         ) : (
-          <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+          <div>
+            <Link to="/register" style={{ textDecoration: "none" }}>
+              <button className="navButton">Register</button>
+            </Link>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <button className="navButton">Login</button>
+            </Link>
           </div>
         )}
       </div>

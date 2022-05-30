@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="Login">
       <div className="lContainer">
         <input
           type="text"
@@ -50,6 +50,9 @@ const Login = () => {
           Login
         </button>
         {error && <span>{error.message}</span>}
+        <Link to="/register" style={{ textDecoration: "none" }}>
+          <button className=" lButton register">Register</button>
+        </Link>
       </div>
     </div>
   );
