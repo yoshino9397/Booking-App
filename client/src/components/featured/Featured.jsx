@@ -1,11 +1,11 @@
 import "./featured.css";
 import useFetch from "../../hooks/useFetch";
-import { Link } from "react-router-dom";
 
 const Featured = () => {
   const { data, loading } = useFetch(
     "/hotels/countByCity?cities=Kanazawa,Hanoi,Hallstatt"
   );
+
   return (
     <div className="featured">
       {loading ? (
@@ -18,12 +18,10 @@ const Featured = () => {
               alt=""
               className="featuredImg"
             />
-            {/* <Link to="/hotels" style={{ textDecoration: "none" }}> */}
             <div className="featuredTitles">
               <h1>Kanazawa</h1>
               <h2>{data[0]} properties</h2>
             </div>
-            {/* </Link> */}
           </div>
           <div className="featuredItem">
             <img
