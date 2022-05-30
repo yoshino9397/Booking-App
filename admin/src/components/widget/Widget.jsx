@@ -1,17 +1,39 @@
 import "./widget.scss";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import LuggageIcon from "@mui/icons-material/Luggage";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Widget = ({ type }) => {
+  const [users, setUsers] = useState();
+  const [hotels, setHotels] = useState();
   let data;
 
-  //temporary
-  const amount = 100;
-  const diff = 20;
+  useEffect(() => {
+    const getHotels = async () => {
+      try {
+        const resHotel = await axios.get("/hotels");
+        setHotels(resHotel.data.length);
+        console.log(hotels);
+      } catch {}
+    };
+    getHotels();
+  }, [hotels]);
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const resUser = await axios.get("/users");
+        setUsers(resUser.data.length);
+        console.log(users);
+      } catch {}
+    };
+    getUser();
+  }, [users]);
 
   switch (type) {
     case "user":
@@ -19,6 +41,8 @@ const Widget = ({ type }) => {
         path: "/users",
         title: "USERS",
         isMoney: false,
+        amount: users,
+        diff: 15,
         link: "See all users",
         icon: (
           <PersonOutlinedIcon
@@ -36,9 +60,11 @@ const Widget = ({ type }) => {
         path: "/hotels",
         title: "HOTELS",
         isMoney: false,
+        amount: hotels,
+        diff: 20,
         link: "View all hotels",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <LuggageIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
@@ -53,6 +79,8 @@ const Widget = ({ type }) => {
         path: "/",
         title: "EARNINGS",
         isMoney: true,
+        amount: 200,
+        diff: 43,
         link: "View net earnings",
         icon: (
           <MonetizationOnOutlinedIcon
@@ -67,6 +95,8 @@ const Widget = ({ type }) => {
         path: "/",
         title: "BALANCE",
         isMoney: true,
+        amount: 200,
+        diff: 23,
         link: "See details",
         icon: (
           <AccountBalanceWalletOutlinedIcon
@@ -88,16 +118,19 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {data.isMoney && "$"} {data.amount}
         </span>
-        <Link to={data.path} style={{ textDecoration: "none", color: "#405570" }}>
+        <Link
+          to={data.path}
+          style={{ textDecoration: "none", color: "#405570" }}
+        >
           <span className="link">{data.link}</span>
         </Link>
       </div>
       <div className="right">
         <div className="percentage positive">
           <KeyboardArrowUpIcon />
-          {diff} %
+          {data.diff} %
         </div>
         {data.icon}
       </div>

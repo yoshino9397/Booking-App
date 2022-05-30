@@ -94,7 +94,7 @@ const SingleUser = () => {
           </div>
         </div>
         <div className="bottom">
-          <h1 className="title">Last Transactions</h1>
+          <h1 className="title">Status of Registration Applications</h1>
           <Tables />
         </div>
       </div>

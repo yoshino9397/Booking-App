@@ -2,7 +2,7 @@ import "../singleuser/singleuser.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
-import List from "../../components/table/Table";
+import Tables from "../../components/table/Table";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -100,8 +100,8 @@ const SingleHotel = () => {
           </div>
         </div>
         <div className="bottom">
-          <h1 className="title">Last Transactions</h1>
-          <List />
+          <h1 className="title">Status of Registration Applications</h1>
+          <Tables />
         </div>
       </div>
       {showEdit && (
