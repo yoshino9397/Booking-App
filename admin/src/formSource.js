@@ -44,12 +44,6 @@ export const hotelInputs = [
     placeholder: "LYNX Hotel",
   },
   {
-    id: "type",
-    label: "Type",
-    type: "text",
-    placeholder: "hotel",
-  },
-  {
     id: "city",
     label: "City",
     type: "text",

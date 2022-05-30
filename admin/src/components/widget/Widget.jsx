@@ -4,6 +4,7 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import { Link } from "react-router-dom";
 
 const Widget = ({ type }) => {
   let data;
@@ -15,6 +16,7 @@ const Widget = ({ type }) => {
   switch (type) {
     case "user":
       data = {
+        path: "/users",
         title: "USERS",
         isMoney: false,
         link: "See all users",
@@ -29,11 +31,12 @@ const Widget = ({ type }) => {
         ),
       };
       break;
-    case "order":
+    case "hotel":
       data = {
-        title: "ORDERS",
+        path: "/hotels",
+        title: "HOTELS",
         isMoney: false,
-        link: "View all orders",
+        link: "View all hotels",
         icon: (
           <ShoppingCartOutlinedIcon
             className="icon"
@@ -47,6 +50,7 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data = {
+        path: "/",
         title: "EARNINGS",
         isMoney: true,
         link: "View net earnings",
@@ -60,6 +64,7 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data = {
+        path: "/",
         title: "BALANCE",
         isMoney: true,
         link: "See details",
@@ -85,7 +90,9 @@ const Widget = ({ type }) => {
         <span className="counter">
           {data.isMoney && "$"} {amount}
         </span>
-        <span className="link">{data.link}</span>
+        <Link to={data.path} style={{ textDecoration: "none", color: "#405570" }}>
+          <span className="link">{data.link}</span>
+        </Link>
       </div>
       <div className="right">
         <div className="percentage positive">
