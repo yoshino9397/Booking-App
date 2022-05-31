@@ -12,7 +12,7 @@ const Featured = () => {
         "Loading...."
       ) : (
         <>
-          <div className="featuredItem">
+          <div className="featuredItem" style={{ paddingLeft: "10px" }}>
             <img
               src="https://live.staticflickr.com/65535/52033290883_7dc01f2b85_k.jpg"
               alt=""

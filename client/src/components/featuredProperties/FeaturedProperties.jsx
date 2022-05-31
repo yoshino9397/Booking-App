@@ -11,7 +11,7 @@ const FeaturedProperties = () => {
       ) : (
         <>
           {data.map((item) => (
-            <div className="fpItem" key={item._id}>
+            <div className="fpItem" key={item._id} style={{ padding: "0 5px 0 10px" }}>
               <img src={item.photos[0]} alt="" className="fpImg" />
               <span className="fpName">{item.name}</span>
               <span className="fpCity">{item.city}</span>
