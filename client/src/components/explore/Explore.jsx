@@ -3,7 +3,7 @@ import "./explore.css";
 const Explore = () => {
   return (
     <div className="exploreList">
-      <div className="eListItem">
+      <div className="eListItem" style={{ paddingLeft: "10px" }}>
         <img
           src="https://live.staticflickr.com/65535/52033832420_7bb6b2fc27_k.jpg"
           alt=""
